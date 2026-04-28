@@ -1,0 +1,97 @@
+{
+    "enable_llm": {
+        "description": "是否启用 LLM 进行礼物极性、初始好感度等判定（关闭则使用随机值）",
+        "type": "bool",
+        "default": true
+    },
+    "max_gifts_per_day": {
+        "description": "每天最多计入好感度的送礼次数（超出仍可评价但不影响数值）",
+        "type": "int",
+        "default": 3
+    },
+    "max_chat_aff_per_day": {
+        "description": "每天通过聊天能增加的好感度上限",
+        "type": "int",
+        "default": 3
+    },
+    "chat_affection_prompt": {
+        "description": "聊天增加好感度的 LLM 提示词（使用 {{message}} 占位符）",
+        "type": "text",
+        "default": "用户最后一条消息是：「{{message}}」。请决定是否应增加1点好感度（概率10%~30%）。返回 JSON：{\"increase\": true/false}"
+    },
+    "initial_affection_prompt": {
+        "description": "初次创建档案时生成初始好感度的提示词（使用 {{nickname}} 占位符）",
+        "type": "text",
+        "default": "用户为自己设置了昵称：{{nickname}}。请根据这个昵称，生成初始好感度值（5~10）。返回 JSON：{\"affection\": 7}"
+    },
+    "affection_thresholds": {
+        "description": "好感度与语气态度的对应关系，JSON 数组字符串。每个对象包含 min（最低好感度）和 description（态度描述）",
+        "type": "string",
+        "default": "[{\"min\":50,\"description\":\"亲昵，热情\"},{\"min\":10,\"description\":\"温和，友好\"},{\"min\":-10,\"description\":\"中立，平淡\"},{\"min\":-50,\"description\":\"冷淡，疏远\"},{\"min\":-100,\"description\":\"厌恶，敌意\"}]"
+    },
+    "likes": {
+        "description": "弗洛洛喜欢的礼物关键词列表，会影响礼物初始极性与好感度变化范围",
+        "type": "list",
+        "default": ["戏剧", "莎士比亚", "彼岸花", "红茶", "乐谱", "指挥棒", "面具", "玫瑰", "古典诗集", "月光石", "竖琴"]
+    },
+    "dislikes": {
+        "description": "弗洛洛厌恶的礼物关键词列表，会影响礼物初始极性与好感度变化范围",
+        "type": "list",
+        "default": ["塑料花", "噪音", "快餐", "电子烟", "塑料玩具", "粗俗笑话"]
+    },
+    "unlock_nickname_evo": {
+        "description": "解锁昵称等级图标（星星/月亮/太阳/皇冠）所需的好感度",
+        "type": "int",
+        "default": 10
+    },
+    "unlock_signature": {
+        "description": "解锁个性签名功能所需的好感度",
+        "type": "int",
+        "default": 10
+    },
+    "unlock_sonnet": {
+        "description": "解锁十四行诗功能所需的好感度",
+        "type": "int",
+        "default": 20
+    },
+    "unlock_birthday": {
+        "description": "解锁生日许愿（/birthday 与 /wish）所需的好感度",
+        "type": "int",
+        "default": 30
+    },
+    "unlock_fortune": {
+        "description": "解锁运势加成功能（好感度达到后永久生效）所需的好感度",
+        "type": "int",
+        "default": 40
+    },
+    "unlock_greeting": {
+        "description": "解锁自定义每日问候语功能所需的好感度",
+        "type": "int",
+        "default": 50
+    },
+    "unlock_dual_persona": {
+        "description": "解锁二重人格碎片（对话中概率出现傲娇/毒舌语气）所需的好感度",
+        "type": "int",
+        "default": 60
+    },
+    "unlock_suffix": {
+        "description": "解锁自定义句末尾语功能所需的好感度",
+        "type": "int",
+        "default": 75
+    },
+    "unlock_style": {
+        "description": "解锁自定义说话风格功能所需的好感度",
+        "type": "int",
+        "default": 90
+    },
+    "fortune_boost_lower": {
+        "description": "运势加成触发区间的下限（运势值≥此值且≤上限时触发）",
+        "type": "int",
+        "default": 30
+    },
+    "fortune_boost_upper": {
+        "description": "运势加成触发区间的上限",
+        "type": "int",
+        "default": 85
+    }
+}

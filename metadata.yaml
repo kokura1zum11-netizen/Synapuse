@@ -1,0 +1,6 @@
+name: astrbot_plugin_user_profile
+author: YourName
+display_name: 弗洛洛的好感档案
+version: 4.2.0
+description: >
+  最终上线版：昵称强制使用、风格覆盖、新jrrp好感、排行榜、管理员批量管理。
